@@ -3,6 +3,7 @@
 
 ServerInterface::ServerInterface()
 {
+    CServerData::registerMetaType_CServerData();
 }
 
 ServerInterface::~ServerInterface()

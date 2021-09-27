@@ -22,3 +22,6 @@ QDbusDemo
    * cd Client && ./Client
    * cd ..
    * cd Server && ./Server
+
+   * com.xcl.test.conf 拷贝至 /etc/dbus-1/system.d
+   * com.xcl.test.service 拷贝至 /usr/share/dbus-1/system-services

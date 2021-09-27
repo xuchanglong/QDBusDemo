@@ -4,9 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui dbus
-
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT       += core dbus
 
 TARGET = Server
 TEMPLATE = app
@@ -15,11 +13,9 @@ INCLUDEPATH += ../
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
         serverInterface.cpp \
         ../__interfaces/interfaceTypeDefine.cpp
 
 
-HEADERS  += mainwindow.h \
-        serverInterface.h \
+HEADERS  += serverInterface.h \
         ../__interfaces/interfaceTypeDefine.h
