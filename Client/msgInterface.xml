@@ -1,0 +1,15 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node>
+  <interface name="msg.interface">
+    <method name="slot_content4Client">
+      <arg type="s" direction="out"/>
+      <arg name="str_content" type="s" direction="in"/>
+    </method>
+    <method name="slot_content4ClientReturnVoid">
+      <arg name="str_content" type="s" direction="in"/>
+    </method>
+    <signal name="sig_receivedContent">
+      <arg type="s" direction="out"/>
+    </signal>
+  </interface>
+</node>
