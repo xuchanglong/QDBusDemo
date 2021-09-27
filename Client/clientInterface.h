@@ -3,7 +3,7 @@
 
 #include <QString>
 #include <QObject>
-#include "msgInterface.h"
+#include "__interfaces/msgInterface.h"
 
 class ClientInterface : public QObject {
     Q_OBJECT

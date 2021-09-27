@@ -14,7 +14,11 @@ QDbusDemo
    * 异步通信（基于 Watcher）
    * 异步通信（基于 Server 返回的信号）
 #### 2、使用方法
+   * cd ./__interfaces 
+   * qdbusxml2cpp msgInterface.xml -i interfaceTypeDefine.h -p msgInterface
+   * cd ..
    * mkdir build && cd build
    * qmake .. && make
    * cd Client && ./Client
+   * cd ..
    * cd Server && ./Server

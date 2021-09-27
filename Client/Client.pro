@@ -10,15 +10,15 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = Client
 TEMPLATE = app
-
+INCLUDEPATH += ../
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    msgInterface.cpp \
-    clientInterface.cpp \
-    interfaceTypeDefine.cpp
+        clientInterface.cpp \
+        ../__interfaces/msgInterface.cpp \
+        ../__interfaces/interfaceTypeDefine.cpp
 
 HEADERS  += mainwindow.h \
-    msgInterface.h \
-    clientInterface.h \
-    interfaceTypeDefine.h
+        clientInterface.h \
+        ../__interfaces/msgInterface.h \
+        ../__interfaces/interfaceTypeDefine.h

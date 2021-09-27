@@ -11,13 +11,15 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = Server
 TEMPLATE = app
 
+INCLUDEPATH += ../
+
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    serverInterface.cpp \
-    ../Client/interfaceTypeDefine.cpp
+        serverInterface.cpp \
+        ../__interfaces/interfaceTypeDefine.cpp
 
 
 HEADERS  += mainwindow.h \
-    serverInterface.h \
-    ../Client/interfaceTypeDefine.h
+        serverInterface.h \
+        ../__interfaces/interfaceTypeDefine.h

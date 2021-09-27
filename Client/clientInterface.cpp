@@ -1,5 +1,5 @@
 #include "clientInterface.h"
-#include "interfaceTypeDefine.h"
+#include "__interfaces/interfaceTypeDefine.h"
 
 ClientInterface::ClientInterface(QObject *parent)
     : QObject(parent)

@@ -4,7 +4,7 @@
 #include <QObject>
 #include <QString>
 
-#include "../Client/interfaceTypeDefine.h"
+#include "__interfaces/interfaceTypeDefine.h"
 
 class ServerInterface : public QObject {
     Q_OBJECT

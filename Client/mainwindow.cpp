@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include <unistd.h>
-#include "msgInterface.h"
+#include "__interfaces/msgInterface.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
