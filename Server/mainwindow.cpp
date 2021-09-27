@@ -18,7 +18,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::InitQDbus()
 {
-    QDBusConnection connection = QDBusConnection::sessionBus();
+    QDBusConnection connection = QDBusConnection::systemBus();
     if (!connection.registerService("com.xcl.test")) {
         qDebug() << connection.lastError().message();
         exit(1);

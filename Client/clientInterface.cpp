@@ -6,7 +6,7 @@ ClientInterface::ClientInterface(QObject *parent)
 {
     msg::interface *p_msg_interface;
     p_msg_interface = new msg::interface("com.xcl.test", "/msg/path",
-        QDBusConnection::sessionBus());
+        QDBusConnection::systemBus());
     CServerData::registerMetaType_CServerData();
     connect(p_msg_interface, &msg::interface::sig_receivedContent,
         this, &ClientInterface::slot_receiveContent4Server);
@@ -20,7 +20,7 @@ ClientInterface::~ClientInterface()
 void ClientInterface::synSendContent(QString str_content)
 {
     msg::interface msg_interface("com.xcl.test", "/msg/path",
-        QDBusConnection::sessionBus());
+        QDBusConnection::systemBus());
     QDBusPendingReply<QString> reply = msg_interface.slot_content4Client(str_content);
     reply.waitForFinished();
     emit sig_sendContentResult(reply.value());
@@ -29,7 +29,7 @@ void ClientInterface::synSendContent(QString str_content)
 
 void ClientInterface::asynSendContentbyWatcher(QString str_content)
 {
-    msg::interface msg_interface("com.xcl.test", "/msg/path", QDBusConnection::sessionBus());
+    msg::interface msg_interface("com.xcl.test", "/msg/path", QDBusConnection::systemBus());
     QDBusPendingReply<QString> reply = msg_interface.slot_content4Client(str_content);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply, nullptr);
     QObject::connect(watcher, &QDBusPendingCallWatcher::finished, this, &ClientInterface::slot_sendContentResult);
@@ -38,7 +38,7 @@ void ClientInterface::asynSendContentbyWatcher(QString str_content)
 
 void ClientInterface::asynSendContentbySignal(QString str_content)
 {
-    msg::interface msg_interface("com.xcl.test", "/msg/path", QDBusConnection::sessionBus());
+    msg::interface msg_interface("com.xcl.test", "/msg/path", QDBusConnection::systemBus());
     msg_interface.slot_content4ClientReturnVoid(str_content);
     return;
 }
