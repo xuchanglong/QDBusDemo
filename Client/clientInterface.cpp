@@ -1,4 +1,5 @@
 #include "clientInterface.h"
+#include "interfaceTypeDefine.h"
 
 ClientInterface::ClientInterface(QObject *parent)
     : QObject(parent)
@@ -6,6 +7,7 @@ ClientInterface::ClientInterface(QObject *parent)
     msg::interface *p_msg_interface;
     p_msg_interface = new msg::interface("com.xcl.test", "/msg/path",
         QDBusConnection::sessionBus());
+    CServerData::registerMetaType_CServerData();
     connect(p_msg_interface, &msg::interface::sig_receivedContent,
         this, &ClientInterface::slot_receiveContent4Server);
 }
@@ -41,8 +43,10 @@ void ClientInterface::asynSendContentbySignal(QString str_content)
     return;
 }
 
-void ClientInterface::slot_receiveContent4Server(QString content)
+void ClientInterface::slot_receiveContent4Server(const QString &content, CServerData serverData)
 {
+    qDebug() << "===  ClientInterface::slot_receiveContent4Server name = " << serverData.m_str_name;
+    qDebug() << "===  ClientInterface::slot_receiveContent4Server time = " << serverData.m_str_time;
     emit sig_sendContentResult(content);
     return;
 }

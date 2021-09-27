@@ -4,6 +4,8 @@
 #include <QObject>
 #include <QString>
 
+#include "../Client/interfaceTypeDefine.h"
+
 class ServerInterface : public QObject {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "msg.interface")
@@ -14,7 +16,7 @@ public:
 
 signals:
     void sig_contentChanged(QString);
-    void sig_receivedContent(const QString &in0);
+    void sig_receivedContent(const QString &in0, CServerData serverData);
 
 public slots:
     QString slot_content4Client(QString content);

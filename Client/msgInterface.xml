@@ -10,6 +10,8 @@
     </method>
     <signal name="sig_receivedContent">
       <arg type="s" direction="out"/>
+      <arg direction="out" type="a(i)" name="serverData"/>
+      <annotation value="CServerData" name="org.qtproject.QtDBus.QtTypeName.Out1"/>
     </signal>
   </interface>
 </node>

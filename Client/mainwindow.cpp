@@ -1,5 +1,4 @@
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
 #include <unistd.h>
 #include "msgInterface.h"
 

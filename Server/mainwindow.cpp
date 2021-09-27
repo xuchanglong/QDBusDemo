@@ -45,6 +45,7 @@ void MainWindow::InitUI()
 
 void MainWindow::InitControl()
 {
+    CServerData::registerMetaType_CServerData();
     connect(&m_server_interface, &ServerInterface::sig_contentChanged, this, &MainWindow::slot_contentChanged);
     return;
 }

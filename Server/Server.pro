@@ -14,8 +14,10 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    serverInterface.cpp
+    serverInterface.cpp \
+    ../Client/interfaceTypeDefine.cpp
 
 
 HEADERS  += mainwindow.h \
-    serverInterface.h
+    serverInterface.h \
+    ../Client/interfaceTypeDefine.h
