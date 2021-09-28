@@ -1,6 +1,10 @@
-build/
 .vscode
 .clang-format
-
+*.stash
+*.cmake
+Makefile
+Client
+Server
+*.o
 __interfaces/msgInterface.h
 __interfaces/msgInterface.cpp

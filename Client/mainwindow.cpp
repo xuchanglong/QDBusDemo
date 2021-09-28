@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include <unistd.h>
 #include "__interfaces/msgInterface.h"
+#include <QApplication>
+#include <QDesktopWidget>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -8,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
     InitWin();
     InitUI();
     InitControl();
+    InitPos();
 }
 
 MainWindow::~MainWindow()
@@ -63,6 +66,15 @@ void MainWindow::InitControl()
     connect(m_p_btnASynSendbyReturnValue, &QPushButton::clicked, this, &MainWindow::slot_asynSendMsgbyWatcher);
     connect(m_p_btnASynSendbySignal, &QPushButton::clicked, this, &MainWindow::slot_asynSendMsgbySignal);
     connect(&m_client_interface, &ClientInterface::sig_sendContentResult, this, &MainWindow::slot_sendContentResult);
+    return;
+}
+
+void MainWindow::InitPos()
+{
+    QDesktopWidget *pdeskWin = QApplication::desktop();
+    int x = pdeskWin->width() / 2 - width() / 2;
+    int y = pdeskWin->height() / 2 - height() / 2;
+    move(x, y);
     return;
 }
 

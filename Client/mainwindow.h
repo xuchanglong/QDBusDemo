@@ -25,6 +25,7 @@ private:
     void InitWin();
     void InitUI();
     void InitControl();
+    void InitPos();
 
 private:
     ClientInterface m_client_interface;
