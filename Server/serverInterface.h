@@ -16,7 +16,7 @@ public:
 
 signals:
     void sig_contentChanged(QString);
-    void sig_receivedContent(const QString &in0, CServerData serverData);
+    void sig_receivedContent(const QString &in0, CServerData serverData, CServerDataList serverDataList);
 
 public slots:
     QString slot_content4Client(QString content);

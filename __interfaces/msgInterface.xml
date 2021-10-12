@@ -10,8 +10,10 @@
     </method>
     <signal name="sig_receivedContent">
       <arg type="s" direction="out"/>
-      <arg direction="out" type="a(i)" name="serverData"/>
+      <arg direction="out" type="a(sv)" name="serverData"/>
       <annotation value="CServerData" name="org.qtproject.QtDBus.QtTypeName.Out1"/>
+      <arg direction="out" type="a(i)" name="serverDataList"/>
+      <annotation value="CServerDataList" name="org.qtproject.QtDBus.QtTypeName.Out2"/>
     </signal>
   </interface>
 </node>

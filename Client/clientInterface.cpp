@@ -8,6 +8,7 @@ ClientInterface::ClientInterface(QObject *parent)
     p_msg_interface = new msg::interface("com.xcl.test", "/msg/path",
         QDBusConnection::systemBus());
     CServerData::registerMetaType_CServerData();
+    CServerDataList::registerMetaType_CServerDataList();
     connect(p_msg_interface, &msg::interface::sig_receivedContent,
         this, &ClientInterface::slot_receiveContent4Server);
 }
@@ -43,11 +44,16 @@ void ClientInterface::asynSendContentbySignal(QString str_content)
     return;
 }
 
-void ClientInterface::slot_receiveContent4Server(const QString &content, CServerData serverData)
+void ClientInterface::slot_receiveContent4Server(const QString &in0, CServerData serverData, CServerDataList serverDataList)
 {
     qDebug() << "===  ClientInterface::slot_receiveContent4Server name = " << serverData.m_str_name;
     qDebug() << "===  ClientInterface::slot_receiveContent4Server time = " << serverData.m_str_time;
-    emit sig_sendContentResult(content);
+    QList<CServerData>::iterator it = serverDataList.begin();
+    for (; it != serverDataList.end(); ++it) {
+        qDebug() << "===  ClientInterface::slot_receiveContent4Server name = " << it->m_str_name;
+        qDebug() << "===  ClientInterface::slot_receiveContent4Server time = " << it->m_str_time;
+    }
+    emit sig_sendContentResult(in0);
     return;
 }
 

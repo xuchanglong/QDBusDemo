@@ -21,7 +21,7 @@ public:
     void asynSendContentbySignal(QString name);
 
 private slots:
-    void slot_receiveContent4Server(const QString &, CServerData);
+    void slot_receiveContent4Server(const QString &in0, CServerData serverData, CServerDataList serverDataList);
     void slot_sendContentResult(QDBusPendingCallWatcher *wather);
 };
 

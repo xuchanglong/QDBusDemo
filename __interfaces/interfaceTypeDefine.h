@@ -19,4 +19,12 @@ public:
 };
 Q_DECLARE_METATYPE(CServerData)
 
+class CServerDataList : public QList<CServerData> {
+public:
+    friend QDBusArgument &operator<<(QDBusArgument &argument, const CServerDataList &);
+    friend const QDBusArgument &operator>>(const QDBusArgument &argument, CServerDataList &);
+    static void registerMetaType_CServerDataList();
+};
+Q_DECLARE_METATYPE(CServerDataList)
+
 #endif
